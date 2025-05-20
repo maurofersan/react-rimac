@@ -1,0 +1,46 @@
+.user {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__page {
+    flex-grow: 1;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(
+      to right,
+      rgba(161, 140, 209, 0.8) 0%,
+      #ffffff 10%,
+      #ffffff 90%,
+      rgba(137, 247, 254, 0.5) 100%
+    );
+  }
+
+  &__container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 4rem;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  &__subtitle {
+    font-size: 0.88rem;
+    text-align: left;
+  }
+}

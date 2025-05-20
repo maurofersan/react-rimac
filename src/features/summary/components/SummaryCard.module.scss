@@ -1,0 +1,38 @@
+.summary-card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+
+  &__label {
+    color: #6f6f6f;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__user-name {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__info {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+
+    p {
+      margin: 0.25rem 0;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+  }
+}

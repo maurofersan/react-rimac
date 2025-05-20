@@ -1,0 +1,19 @@
+.footer {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #03050f;
+    padding: 1rem 4.5rem;
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+
+  &__text {
+    color: #f8f9ff;
+    font-size: 0.88rem;
+    font-weight: 400;
+  }
+}

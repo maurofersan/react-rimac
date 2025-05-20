@@ -1,0 +1,26 @@
+@mixin base-button($bg-color, $hover-color: null) {
+  background-color: $bg-color;
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  @if $hover-color {
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
+
+.button {
+  &__primary {
+    @include base-button(#03050f, #222);
+  }
+
+  &__secondary {
+    @include base-button(#ff1c44);
+  }
+}

@@ -1,0 +1,50 @@
+.user {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__group {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid #5e6488;
+    border-radius: 8px;
+    background: white;
+    margin-bottom: 22px;
+
+    & > *:first-child {
+      border-right: 1px solid #5e6488;
+    }
+
+    &--error {
+      margin-bottom: 0;
+      border-color: #e63946;
+    }
+  }
+
+  &__terms {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &__terms-link {
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: left;
+
+    &:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &__error {
+    margin: 2px 0;
+    font-size: 0.75rem;
+    color: #e63946;
+  }
+}
