@@ -7,7 +7,6 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<UserPage />} />
-      <Route path="/react-rimac" element={<UserPage />} />
       <Route path="/planes" element={<PrivateRoute />}>
         <Route index element={<PlansPage />} />
       </Route>
