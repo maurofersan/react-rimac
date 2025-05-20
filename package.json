@@ -1,5 +1,6 @@
 {
   "name": "rimac-challenge",
+  "homepage": "https://maurofersan.github.io/react-rimac",
   "private": true,
   "version": "0.0.0",
   "type": "module",

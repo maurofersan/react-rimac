@@ -1,15 +1,15 @@
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { AppRouter } from "./router/AppRouter";
 import { GlobalProvider } from "./store/context/GlobalProvider";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GlobalProvider>
         <AppRouter />
       </GlobalProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
