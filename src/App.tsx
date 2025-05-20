@@ -5,7 +5,7 @@ import { GlobalProvider } from "./store/context/GlobalProvider";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-rimac">
       <GlobalProvider>
         <AppRouter />
       </GlobalProvider>
