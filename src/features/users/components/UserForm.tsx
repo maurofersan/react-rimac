@@ -121,7 +121,9 @@ const UserForm = () => {
         </a>
       </div>
 
-      <Button type="submit">Cotiza aquí</Button>
+      <Button type="submit" size="sm">
+        Cotiza aquí
+      </Button>
     </form>
   );
 };

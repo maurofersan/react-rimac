@@ -1,3 +1,5 @@
+@use "@/styles/index" as *;
+
 @mixin base-button($bg-color, $hover-color: null) {
   background-color: $bg-color;
   color: #ffffff;
@@ -22,5 +24,33 @@
 
   &__secondary {
     @include base-button(#ff1c44);
+  }
+
+  &__sm {
+    font-size: 1rem;
+    padding: 10px 20px;
+    min-width: 120px;
+  }
+
+  &__md {
+    font-size: 1.05rem;
+    padding: 14px 32px;
+    min-width: 180px;
+  }
+
+  &__lg {
+    font-size: 1.142rem;
+    padding: 16px 40px;
+    min-width: 240px;
+  }
+
+  @include media-breakpoint-down(md) {
+    &__sm,
+    &__md,
+    &__lg {
+      width: 100%;
+      font-size: 0.87rem;
+      padding: 12px 16px;
+    }
   }
 }

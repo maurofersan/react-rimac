@@ -1,8 +1,8 @@
+@use "@/styles/index" as *;
+
 .user {
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    display: block;
   }
 
   &__group {
@@ -28,6 +28,11 @@
     flex-direction: column;
     gap: 0.5rem;
     font-size: 0.875rem;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__terms-link {

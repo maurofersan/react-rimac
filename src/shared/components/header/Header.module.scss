@@ -1,3 +1,5 @@
+@use "@/styles/index" as *;
+
 .header {
   &__container {
     display: flex;
@@ -15,5 +17,13 @@
   &__info {
     display: flex;
     gap: 3rem;
+  }
+
+  &__text {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
   }
 }
