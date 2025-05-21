@@ -11,6 +11,7 @@ export const PlanCard = ({ plan, onSelect }: PlanCardProps) => {
   return (
     <div className={styles.card}>
       <h3 className={styles.card__title}>{plan.name}</h3>
+      <h4 className={styles["card__price-title"]}>Costo del plan</h4>
       <p className={styles.card__price}>${plan.price} al mes</p>
       <ul className={styles.card__description}>
         {plan.description.map((item, index) => (

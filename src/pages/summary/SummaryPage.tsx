@@ -15,18 +15,20 @@ export const SummaryPage = () => {
   return (
     <div className={styles["summary-page"]}>
       <Header />
-      <Stepper step={2} totalSteps={2} />
-      <Back />
-      <h2 className={styles["summary-page__title"]}>Resumen del seguro</h2>
+      <Stepper currentStep={2} />
+      <div className={styles["summary-page__content"]}>
+        <Back />
+        <h2 className={styles["summary-page__title"]}>Resumen del seguro</h2>
 
-      <SummaryCard
-        name={`${user.name} ${user.lastName}`}
-        documentType={user.documentType}
-        documentNumber={user.documentNumber}
-        phone={user.phone}
-        planName={selectedPlan.name}
-        price={`Costo del Plan: $${selectedPlan.price} al mes`}
-      />
+        <SummaryCard
+          name={`${user.name} ${user.lastName}`}
+          documentType={user.documentType}
+          documentNumber={user.documentNumber}
+          phone={user.phone}
+          planName={selectedPlan.name}
+          price={`Costo del Plan: $${selectedPlan.price} al mes`}
+        />
+      </div>
     </div>
   );
 };

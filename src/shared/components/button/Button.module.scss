@@ -2,7 +2,7 @@
 
 @mixin base-button($bg-color, $hover-color: null) {
   background-color: $bg-color;
-  color: #ffffff;
+  color: $gray-0;
   padding: 14px 32px;
   border: none;
   border-radius: 32px;

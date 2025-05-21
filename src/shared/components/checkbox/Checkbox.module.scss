@@ -1,3 +1,5 @@
+@use "@/styles/index" as *;
+
 .checkbox {
   &__group {
     display: flex;
@@ -17,13 +19,13 @@
     height: 16px;
     appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #000;
+    border: 1px solid $gray-500;
     border-radius: 4px;
     cursor: pointer;
     position: relative;
 
     &:checked {
-      background-color: #000;
+      background-color: $gray-500;
     }
 
     &:checked::after {
@@ -66,7 +68,7 @@
     }
 
     &--error {
-      border-color: #e63946;
+      border-color: $red-error;
     }
   }
 
@@ -74,7 +76,7 @@
     display: inline-block;
 
     &--error {
-      color: #e63946;
+      color: $red-error;
     }
   }
 }

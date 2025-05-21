@@ -1,24 +1,62 @@
+@use "@/styles/index" as *;
+
 .stepper {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: center;
+  background-color: #edeffc;
+  padding: 1rem;
+
+  &__step {
+    display: flex;
+    align-items: center;
+  }
+
+  &__circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $neutrals-200;
+    color: $neutrals-200;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+  }
 
   &__label {
-    font-weight: 600;
-    margin-right: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $neutrals-700;
   }
 
-  &__bar {
-    flex: 1;
-    background-color: #eee;
-    height: 6px;
-    border-radius: 3px;
-    overflow: hidden;
+  &__dots {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+
+    .stepper__dot {
+      width: 4px;
+      height: 4px;
+      background-color: $blue-berry;
+      border-radius: 50%;
+      margin: 0 2px;
+    }
   }
 
-  &__progress {
-    background-color: #5c0bd6;
-    height: 100%;
-    transition: width 0.3s ease-in-out;
+  .active {
+    color: #1d1d1d;
+
+    &.stepper__circle {
+      background-color: $blue-berry;
+      color: white;
+    }
+
+    &.stepper__label {
+      font-weight: 600;
+    }
   }
 }

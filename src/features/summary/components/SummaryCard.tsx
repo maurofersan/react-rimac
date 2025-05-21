@@ -1,3 +1,4 @@
+import { FaUserFriends } from "react-icons/fa";
 import styles from "./SummaryCard.module.scss";
 
 interface SummaryCardProps {
@@ -23,7 +24,9 @@ export const SummaryCard = ({
         <p className={styles["summary-card__label"]}>
           Precios calculados para:
         </p>
-        <h3 className={styles["summary-card__user-name"]}>👤 {name}</h3>
+        <h3 className={styles["summary-card__user-name"]}>
+          <FaUserFriends size={22} /> {name}
+        </h3>
       </div>
 
       <div className={styles["summary-card__info"]}>

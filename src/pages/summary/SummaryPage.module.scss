@@ -1,6 +1,17 @@
+@use "@/styles/index" as *;
+
 .summary-page {
-  padding: 0 2rem;
-  background-color: #fafbff;
+  padding: 0;
+  background-color: $blue-lightest;
+  min-height: 100vh;
+
+  &__content {
+    padding: 0 1.5rem 5rem 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      padding: 0 7rem 5rem 7rem;
+    }
+  }
 
   &__title {
     font-size: 2.5rem;

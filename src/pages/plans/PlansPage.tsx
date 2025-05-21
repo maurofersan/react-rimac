@@ -72,39 +72,45 @@ export const PlansPage = () => {
   return (
     <div className={styles.plans}>
       <Header />
-      <Stepper step={1} totalSteps={2} />
-      <Back />
-      <h2 className={styles.plans__title}>
-        {user?.name || ""} ¿Para quién deseas cotizar?
-      </h2>
-      <p className={styles.plans__subtitle}>
-        Selecciona la opción que se ajuste más a tus necesidades.
-      </p>
+      <Stepper currentStep={1} />
+      <div className={styles.plans__content}>
+        <Back />
+        <h2 className={styles.plans__title}>
+          {user?.name || ""} ¿Para quién deseas cotizar?
+        </h2>
+        <p className={styles.plans__subtitle}>
+          Selecciona la opción que se ajuste más a tus necesidades.
+        </p>
 
-      <div className={styles.plans__selectors}>
-        <SelectCard
-          title="Para mí"
-          description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
-          imageUrl={meImg}
-          selected={selectedOption === "me"}
-          onSelect={() => handleSelectOption("me")}
-        />
-        <SelectCard
-          title="Para alguien más"
-          description="Realiza una cotización para uno de tus familiares o cualquier persona."
-          imageUrl={otherImg}
-          selected={selectedOption === "other"}
-          onSelect={() => handleSelectOption("other")}
-        />
-      </div>
-
-      {selectedOption && (
-        <div className={styles.plans__cards}>
-          {plans.map((plan) => (
-            <PlanCard key={plan.name} plan={plan} onSelect={handleSelectPlan} />
-          ))}
+        <div className={styles.plans__selectors}>
+          <SelectCard
+            title="Para mí"
+            description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
+            imageUrl={meImg}
+            selected={selectedOption === "me"}
+            onSelect={() => handleSelectOption("me")}
+          />
+          <SelectCard
+            title="Para alguien más"
+            description="Realiza una cotización para uno de tus familiares o cualquier persona."
+            imageUrl={otherImg}
+            selected={selectedOption === "other"}
+            onSelect={() => handleSelectOption("other")}
+          />
         </div>
-      )}
+
+        {selectedOption && (
+          <div className={styles.plans__cards}>
+            {plans.map((plan) => (
+              <PlanCard
+                key={plan.name}
+                plan={plan}
+                onSelect={handleSelectPlan}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
