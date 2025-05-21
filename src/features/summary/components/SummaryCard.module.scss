@@ -5,6 +5,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   max-width: 600px;
 
+  &__header {
+    border-width: 1px;
+    border-bottom: #d7dbf5;
+  }
+
   &__label {
     color: #6f6f6f;
     font-size: 0.875rem;

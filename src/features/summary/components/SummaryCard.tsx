@@ -19,8 +19,12 @@ export const SummaryCard = ({
 }: SummaryCardProps) => {
   return (
     <div className={styles["summary-card"]}>
-      <p className={styles["summary-card__label"]}>Precios calculados para:</p>
-      <h3 className={styles["summary-card__user-name"]}>👤 {name}</h3>
+      <div className={styles["summary-card__header"]}>
+        <p className={styles["summary-card__label"]}>
+          Precios calculados para:
+        </p>
+        <h3 className={styles["summary-card__user-name"]}>👤 {name}</h3>
+      </div>
 
       <div className={styles["summary-card__info"]}>
         <p>
