@@ -21,9 +21,11 @@ describe("UserPage", () => {
       </MemoryRouter>
     );
 
-    expect(
-      screen.getByRole("heading", { level: 1, name: /creado para ti/i })
-    ).toBeInTheDocument();
+    const h1Headings = screen.getAllByRole("heading", {
+      level: 1,
+      name: /creado para ti/i,
+    });
+    expect(h1Headings).toHaveLength(2);
 
     expect(
       screen.getByRole("heading", {
