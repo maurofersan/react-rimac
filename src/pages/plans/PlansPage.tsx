@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import styles from "./PlansPage.module.scss";
 import type { Plan } from "@/features/plans/types";
 import { PlanCard } from "@/features/plans/components/planCard/PlanCard";
-import { Stepper, Header } from "@/shared/components";
+import { Stepper, Header, Back } from "@/shared/components";
 import { SelectCard } from "@/features/plans/components/selectCard/SelectCard";
 import meImg from "@/assets/me.png";
 import otherImg from "@/assets/other.png";
@@ -73,6 +73,7 @@ export const PlansPage = () => {
     <div className={styles.plans}>
       <Header />
       <Stepper step={1} totalSteps={2} />
+      <Back />
       <h2 className={styles.plans__title}>
         {user?.name || ""} ¿Para quién deseas cotizar?
       </h2>

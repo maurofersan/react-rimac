@@ -6,8 +6,8 @@ import { Route, Routes } from "react-router-dom";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<UserPage />} />
-      {/* <Route path="/react-rimac" element={<UserPage />} /> */}
+      {/* <Route path="/" element={<UserPage />} /> */}
+      <Route path="/" element={<PlansPage />} />
       <Route path="/planes" element={<PrivateRoute />}>
         <Route index element={<PlansPage />} />
       </Route>

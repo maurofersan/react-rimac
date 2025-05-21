@@ -1,3 +1,5 @@
+@use "@/styles/index" as *;
+
 .select {
   position: relative;
   display: flex;
@@ -39,7 +41,7 @@
   }
 
   &__value {
-    color: #03050f;
+    color: $gray-500;
     font-weight: 400;
 
     &--empty {

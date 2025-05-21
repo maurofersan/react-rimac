@@ -21,14 +21,14 @@ export const SelectCard = ({
       className={`${styles.card} ${selected ? styles["card--selected"] : ""}`}
       onClick={onSelect}
     >
-      <img src={imageUrl} alt={title} className={styles.card__image} />
-      <div className={styles.card__content}>
-        <h3 className={styles.card__title}>{title}</h3>
-        <p className={styles.card__description}>{description}</p>
-      </div>
       <div className={styles.card__checkbox}>
         <Checkbox checked={selected} secondary onChange={onSelect} />
       </div>
+      <div className={styles["card__title-container"]}>
+        <img src={imageUrl} alt={title} className={styles.card__image} />
+        <h3 className={styles.card__title}>{title}</h3>
+      </div>
+      <p className={styles.card__description}>{description}</p>
     </div>
   );
 };

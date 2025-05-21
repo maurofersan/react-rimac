@@ -1,20 +1,18 @@
+@use "@/styles/index" as *;
+
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   width: 100%;
   max-width: 280px;
-  border: 2px solid #e5e5e5;
   border-radius: 1rem;
   padding: 1.5rem;
   cursor: pointer;
   background-color: #fff;
   transition: border-color 0.3s ease;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.18);
 
   &--selected {
-    border-color: #03050f;
+    border: 2px solid $gray-500;
   }
 
   &__image {
@@ -23,26 +21,31 @@
     object-fit: contain;
   }
 
-  &__content {
-    flex: 1;
-
+  &__title-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 0.25rem;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: column;
+    }
   }
 
   &__title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
+    margin: 0;
   }
 
   &__description {
     font-size: 0.875rem;
-    color: #555;
+    color: #141938;
   }
 
   &__checkbox {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
   }
 }

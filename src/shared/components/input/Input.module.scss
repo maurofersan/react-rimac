@@ -1,3 +1,5 @@
+@use "@/styles/index" as *;
+
 .input {
   &__group {
     position: relative;
@@ -21,7 +23,7 @@
     border-radius: 8px;
     outline: none;
     background: white;
-    color: #03050f;
+    color: $gray-500;
 
     &--no-border {
       border: none;

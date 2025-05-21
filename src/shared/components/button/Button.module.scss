@@ -19,11 +19,11 @@
 
 .button {
   &__primary {
-    @include base-button(#03050f, #222);
+    @include base-button($gray-500, #222);
   }
 
   &__secondary {
-    @include base-button(#ff1c44);
+    @include base-button($red-300);
   }
 
   &__sm {
