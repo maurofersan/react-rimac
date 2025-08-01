@@ -19,7 +19,7 @@
 
     &--error {
       margin-bottom: 0;
-      border-color: #e63946;
+      border-color: $red-error;
     }
   }
 
@@ -50,6 +50,6 @@
   &__error {
     margin: 2px 0;
     font-size: 0.75rem;
-    color: #e63946;
+    color: $red-error;
   }
 }
