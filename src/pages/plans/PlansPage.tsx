@@ -7,22 +7,36 @@ import { Stepper, Back } from "@/shared/components";
 import { SelectCard } from "@/features/plans/components/selectCard/SelectCard";
 import meImg from "@/assets/me.png";
 import otherImg from "@/assets/other.png";
+import { useUser } from "@/features/users/hooks/useUser";
+import { usePlans } from "@/features/plans/hooks/usePlans";
 
 export const PlansPage = () => {
   const navigate = useNavigate();
-  const { plans, selectedOption, user, selectPlan, handleSelectOption } =
-    usePlanSelection();
+  const {
+    plans,
+    selectedOption,
+    user,
+    handleSelectPlan: selectPlan,
+    handleSelectOption,
+  } = usePlanSelection();
+  const { resetUser } = useUser();
+  const { resetPlans } = usePlans();
 
   const handleSelectPlan = (plan: Plan) => {
     selectPlan(plan);
     navigate("/resumen");
   };
 
+  const handleBack = () => {
+    resetUser();
+    resetPlans();
+  };
+
   return (
     <div className={styles.plans}>
       <Stepper currentStep={1} />
       <div className={styles.plans__content}>
-        <Back />
+        <Back onBack={handleBack} />
         <h2 className={styles.plans__title}>
           {user?.name || ""} ¿Para quién deseas cotizar?
         </h2>

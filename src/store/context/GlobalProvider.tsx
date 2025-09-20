@@ -1,4 +1,4 @@
-import { useMemo, useReducer, type ReactNode } from "react";
+import { useCallback, useMemo, useReducer, type ReactNode } from "react";
 import { initialState, rootReducer } from "../rootReducer";
 import { fetchUserEffect } from "@/features/users/store/effects/userEffects";
 import { fetchPlansEffect } from "@/features/plans/store/effects/fetchPlansEffect";
@@ -9,13 +9,36 @@ import {
   selectPlan,
 } from "@/features/plans/store/actions/plansActions";
 import type { Plan } from "@/features/plans/types";
+import { getPersistedJSON } from "@/shared/utils/storage";
+import type { User } from "@/features/users/types";
+import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
 
 interface GlobalProviderProps {
   children: ReactNode;
 }
 
+const init = (baseState: typeof initialState) => {
+  const persistedUser = getPersistedJSON<User>("user");
+  const persistedSelectedPlan = getPersistedJSON<Plan>("selectedPlan");
+
+  return {
+    ...baseState,
+    user: {
+      ...baseState.user,
+      user: persistedUser,
+    },
+    plans: {
+      ...baseState.plans,
+      selectedPlan: persistedSelectedPlan,
+    },
+  };
+};
+
 export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(rootReducer, initialState);
+  const [state, dispatch] = useReducer(rootReducer, initialState, init);
+  const { removeValue: removePersistedUser } = useLocalStorage<Plan>("user");
+  const { removeValue: removePersistedSelectedPlan } =
+    useLocalStorage<Plan>("selectedPlan");
 
   const fetchUser = async (
     documentType: string,
@@ -33,10 +56,15 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
     dispatch(selectPlan(plan));
   };
 
-  const reset = () => {
+  const handleResetUser = useCallback(() => {
     dispatch(resetUser());
+    removePersistedUser();
+  }, [removePersistedUser]);
+
+  const handleResetPlans = useCallback(() => {
     dispatch(resetPlans());
-  };
+    removePersistedSelectedPlan();
+  }, [removePersistedSelectedPlan]);
 
   const contextValue = useMemo(
     () => ({
@@ -44,9 +72,10 @@ export const GlobalProvider: React.FC<GlobalProviderProps> = ({ children }) => {
       fetchUser,
       fetchPlans,
       selectPlan: handleSelectPlan,
-      reset,
+      resetUser: handleResetUser,
+      resetPlans: handleResetPlans,
     }),
-    [state]
+    [state, handleResetUser, handleResetPlans]
   );
 
   return (

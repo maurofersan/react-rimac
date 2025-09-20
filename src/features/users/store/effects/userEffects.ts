@@ -6,6 +6,8 @@ import {
   type UserAction,
 } from "../actions/userActions";
 import { usersApi } from "../../api/usersApi";
+import { setPersistedJSON } from "@/shared/utils/storage";
+import type { User } from "../../types";
 
 export const fetchUserEffect = async (
   documentType: string,
@@ -17,9 +19,11 @@ export const fetchUserEffect = async (
 
   try {
     const user = await usersApi.getUser();
-    dispatch(
-      fetchUserSuccess({ ...user, documentType, documentNumber, phone })
-    );
+    const fullUser = { ...user, documentType, documentNumber, phone };
+
+    dispatch(fetchUserSuccess(fullUser));
+
+    setPersistedJSON<User>("user", fullUser);
   } catch (error: unknown) {
     let errorMessage = "Unknown error";
 

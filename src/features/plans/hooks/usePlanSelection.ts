@@ -3,6 +3,7 @@ import type { Plan } from "../types";
 import { useUser } from "@/features/users/hooks/useUser";
 import { usePlans } from "./usePlans";
 import { getAgeFromBirthdate } from "@/shared/utils/date";
+import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
 
 type Options = "me" | "other" | null;
 
@@ -11,6 +12,10 @@ export const usePlanSelection = () => {
   const [selectedOption, setSelectedOption] = useState<Options>(null);
   const { plans: plansData, fetchPlans, selectPlan } = usePlans();
   const { user } = useUser();
+  const { setValue: setPersistedSelectedPlan } = useLocalStorage<Plan | null>(
+    "selectedPlan",
+    null
+  );
 
   const getFilteredPlans = useCallback(
     (plans: Plan[], userAge: number): Plan[] => {
@@ -56,11 +61,16 @@ export const usePlanSelection = () => {
     }
   };
 
+  const handleSelectPlan = (plan: Plan) => {
+    selectPlan(plan);
+    setPersistedSelectedPlan(plan);
+  };
+
   return {
     plans,
     selectedOption,
     user,
-    selectPlan,
+    handleSelectPlan,
     handleSelectOption,
   };
 };

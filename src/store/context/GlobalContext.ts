@@ -11,7 +11,8 @@ interface GlobalContextType {
   ) => Promise<void>;
   fetchPlans: () => Promise<void>;
   selectPlan: (plan: Plan) => void;
-  reset: () => void;
+  resetUser: () => void;
+  resetPlans: () => void;
 }
 
 export const GlobalContext = createContext<GlobalContextType | undefined>(

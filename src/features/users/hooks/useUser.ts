@@ -11,6 +11,7 @@ export interface UserContextProps {
     documentNumber: string,
     phone: string
   ) => Promise<void>;
+  resetUser: () => void;
 }
 
 export const useUser = (): UserContextProps => {
@@ -20,10 +21,11 @@ export const useUser = (): UserContextProps => {
     throw new Error("useUser must be used inside a GlobalProvider");
   }
 
-  const { state, fetchUser } = context;
+  const { state, fetchUser, resetUser } = context;
 
   return {
     ...state.user,
     fetchUser,
+    resetUser,
   };
 };

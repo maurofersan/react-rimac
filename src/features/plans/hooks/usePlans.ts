@@ -9,6 +9,7 @@ export interface PlansContextProps {
   selectedPlan: Plan | null;
   fetchPlans: () => Promise<void>;
   selectPlan: (plan: Plan) => void;
+  resetPlans: () => void;
 }
 
 export const usePlans = (): PlansContextProps => {
@@ -18,11 +19,12 @@ export const usePlans = (): PlansContextProps => {
     throw new Error("usePlans must be used inside a GlobalProvider");
   }
 
-  const { state, fetchPlans, selectPlan } = context;
+  const { state, fetchPlans, selectPlan, resetPlans } = context;
 
   return {
     ...state.plans,
     fetchPlans,
     selectPlan,
+    resetPlans,
   };
 };
