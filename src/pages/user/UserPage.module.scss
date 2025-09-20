@@ -17,6 +17,8 @@
       #ffffff 90%,
       rgba(137, 247, 254, 0.5) 100%
     );
+
+    @include with-header-offset;
   }
 
   &__container {

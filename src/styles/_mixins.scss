@@ -1,0 +1,8 @@
+@mixin with-header-offset($height: 64px, $padding: 1rem 4.5rem) {
+  &::before {
+    content: "";
+    display: block;
+    height: $height;
+    padding: $padding;
+  }
+}

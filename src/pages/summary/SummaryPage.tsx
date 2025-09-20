@@ -2,7 +2,7 @@ import { useUser } from "@/features/users/hooks/useUser";
 import { usePlans } from "@/features/plans/hooks/usePlans";
 import styles from "./SummaryPage.module.scss";
 import { SummaryCard } from "@/features/summary/components/SummaryCard";
-import { Back, Header, Stepper } from "@/shared/components";
+import { Back, Stepper } from "@/shared/components";
 
 export const SummaryPage = () => {
   const { user } = useUser();
@@ -14,7 +14,6 @@ export const SummaryPage = () => {
 
   return (
     <div className={styles["summary-page"]}>
-      <Header />
       <Stepper currentStep={2} />
       <div className={styles["summary-page__content"]}>
         <Back />

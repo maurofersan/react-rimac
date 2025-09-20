@@ -7,6 +7,9 @@
     align-items: center;
     background-color: transparent;
     padding: 1rem 4.5rem;
+    position: absolute;
+    inset: 0;
+    height: 64px;
   }
 
   &__image {

@@ -2,13 +2,11 @@ import UserForm from "@/features/users/components/UserForm";
 import styles from "./UserPage.module.scss";
 import familyImg from "@/assets/family.png";
 import { Footer } from "@/shared/components/footer/Footer";
-import { Header } from "@/shared/components/header/Header";
 
 export const UserPage = () => {
   return (
     <div className={styles.user}>
       <div className={styles.user__page}>
-        <Header />
         <main className={styles.user__container}>
           <div className={styles["user__image-container"]}>
             <div className={styles["user__title-container--mobile"]}>

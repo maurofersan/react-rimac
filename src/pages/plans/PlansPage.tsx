@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./PlansPage.module.scss";
 import type { Plan } from "@/features/plans/types";
 import { PlanCard } from "@/features/plans/components/planCard/PlanCard";
-import { Stepper, Header, Back } from "@/shared/components";
+import { Stepper, Back } from "@/shared/components";
 import { SelectCard } from "@/features/plans/components/selectCard/SelectCard";
 import meImg from "@/assets/me.png";
 import otherImg from "@/assets/other.png";
 import { usePlans } from "@/features/plans/hooks/usePlans";
 import { useUser } from "@/features/users/hooks/useUser";
 import { getAgeFromBirthdate } from "@/shared/utils/date";
-import { useNavigate } from "react-router-dom";
 
 type Options = "me" | "other" | null;
 
@@ -71,7 +71,6 @@ export const PlansPage = () => {
 
   return (
     <div className={styles.plans}>
-      <Header />
       <Stepper currentStep={1} />
       <div className={styles.plans__content}>
         <Back />
