@@ -5,8 +5,8 @@ import { PlanCard } from "@/features/plans/components/planCard/PlanCard";
 import { usePlanSelection } from "@/features/plans/hooks/usePlanSelection";
 import { Stepper, Back } from "@/shared/components";
 import { SelectCard } from "@/features/plans/components/selectCard/SelectCard";
-import meImg from "@/assets/me.png";
-import otherImg from "@/assets/other.png";
+import meImg from "@/assets/me.svg";
+import otherImg from "@/assets/other.svg";
 import { useUser } from "@/features/users/hooks/useUser";
 import { usePlans } from "@/features/plans/hooks/usePlans";
 

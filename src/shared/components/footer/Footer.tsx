@@ -1,5 +1,5 @@
 import styles from "./Footer.module.scss";
-import rimacBlackImg from "@/assets/rimac-black.png";
+import rimacBlackImg from "@/assets/rimac-white.svg";
 
 export const Footer = () => {
   return (

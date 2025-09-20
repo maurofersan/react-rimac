@@ -1,6 +1,6 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import styles from "./Header.module.scss";
-import rimacImg from "@/assets/rimac.png";
+import rimacImg from "@/assets/rimac-red.svg";
 
 export const Header = () => {
   return (
