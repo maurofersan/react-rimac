@@ -1,68 +1,17 @@
-import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./PlansPage.module.scss";
 import type { Plan } from "@/features/plans/types";
 import { PlanCard } from "@/features/plans/components/planCard/PlanCard";
+import { usePlanSelection } from "@/features/plans/hooks/usePlanSelection";
 import { Stepper, Back } from "@/shared/components";
 import { SelectCard } from "@/features/plans/components/selectCard/SelectCard";
 import meImg from "@/assets/me.png";
 import otherImg from "@/assets/other.png";
-import { usePlans } from "@/features/plans/hooks/usePlans";
-import { useUser } from "@/features/users/hooks/useUser";
-import { getAgeFromBirthdate } from "@/shared/utils/date";
-
-type Options = "me" | "other" | null;
 
 export const PlansPage = () => {
-  const [plans, setPlans] = useState<Plan[]>([]);
-  const [selectedOption, setSelectedOption] = useState<Options>(null);
-  const { plans: plansData, fetchPlans, selectPlan } = usePlans();
-  const { user } = useUser();
   const navigate = useNavigate();
-
-  const getFilteredPlans = useCallback(
-    (plans: Plan[], userAge: number): Plan[] => {
-      return plans.filter((plan) => userAge >= plan.age);
-    },
-    []
-  );
-
-  const calculateOtherPrice = useCallback((): Plan[] => {
-    const age = user?.birthDay ? getAgeFromBirthdate(user.birthDay) : 0;
-    const filteredPlans = getFilteredPlans(plansData, age);
-
-    return filteredPlans.map((plan: Plan) => {
-      const discount = (plan.price * 5) / 100;
-
-      return {
-        ...plan,
-        price: plan.price - discount,
-      };
-    });
-  }, [plansData, user, getFilteredPlans]);
-
-  useEffect(() => {
-    if (!user) {
-      return;
-    }
-
-    if (selectedOption === "other") {
-      const otherPlans = calculateOtherPrice();
-      setPlans(otherPlans);
-    } else if (selectedOption === "me") {
-      const age = user.birthDay ? getAgeFromBirthdate(user.birthDay) : 0;
-      const filteredPlans = getFilteredPlans(plansData, age);
-      setPlans(filteredPlans);
-    }
-  }, [plansData, selectedOption, user, calculateOtherPrice, getFilteredPlans]);
-
-  const handleSelectOption = async (option: Options) => {
-    setSelectedOption(option);
-
-    if (option) {
-      await fetchPlans();
-    }
-  };
+  const { plans, selectedOption, user, selectPlan, handleSelectOption } =
+    usePlanSelection();
 
   const handleSelectPlan = (plan: Plan) => {
     selectPlan(plan);
