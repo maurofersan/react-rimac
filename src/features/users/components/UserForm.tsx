@@ -32,8 +32,11 @@ const UserForm = () => {
 
     if (!form.documentNumber) {
       newErrors.documentNumber = "Este campo es obligatorio";
-    } else if (!isValidDocumentNumber(form.documentNumber)) {
-      newErrors.documentNumber = "Debe tener entre 8 y 12 dígitos";
+    } else if (!isValidDocumentNumber(form.documentNumber, form.documentType)) {
+      newErrors.documentNumber =
+        form.documentType === "dni"
+          ? "El DNI debe tener 8 dígitos"
+          : "El CE debe tener entre 9 y 12 caracteres alfanuméricos";
     }
 
     if (!form.phone) {
@@ -78,7 +81,10 @@ const UserForm = () => {
             label="Tipo de documento"
             options={documentOptions}
             value={form.documentType}
-            onChange={(val) => handleChange("documentType", val)}
+            onChange={(val) => {
+              setForm((prev) => ({ ...prev, documentNumber: "" }));
+              handleChange("documentType", val);
+            }}
             noBorder
           />
           <Input
