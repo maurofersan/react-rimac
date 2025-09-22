@@ -44,7 +44,6 @@ export const userReducer = (
         error: action.payload,
       };
     case USER_RESET:
-      console.log("initialUserState::", initialUserState);
       return initialUserState;
     default:
       return state;

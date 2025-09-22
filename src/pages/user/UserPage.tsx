@@ -1,4 +1,4 @@
-import UserForm from "@/features/users/components/UserForm";
+import UserForm from "@/features/users/components/user-form/UserForm";
 import styles from "./UserPage.module.scss";
 import familyImg from "@/assets/family.png";
 import { Footer } from "@/shared/components/footer/Footer";
