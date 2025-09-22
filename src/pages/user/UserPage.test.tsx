@@ -6,8 +6,24 @@ import { MemoryRouter } from "react-router-dom";
 vi.mock("@/shared/components/footer/Footer", () => ({
   Footer: () => <footer data-testid="mock-footer" />,
 }));
-vi.mock("@/features/users/components/UserForm", () => ({
+vi.mock("@/features/users/components/user-form/UserForm", () => ({
   default: () => <form data-testid="mock-user-form">Mock Form</form>,
+}));
+vi.mock("@/features/users/hooks/useUserForm", () => ({
+  useUserForm: () => ({
+    form: {
+      documentType: "dni",
+      documentNumber: "",
+      phone: "",
+      termsAccepted: false,
+      commercialAccepted: false,
+    },
+    errors: {},
+    isLoading: false,
+    handleChange: vi.fn(),
+    handleSubmit: vi.fn(),
+    handleDocumentTypeChange: vi.fn(),
+  }),
 }));
 
 describe("UserPage", () => {
