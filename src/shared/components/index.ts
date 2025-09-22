@@ -6,4 +6,3 @@ export * from "./input/Input";
 export * from "./select/Select";
 export * from "./stepper/Stepper";
 export * from "./back/Back";
-export * from "./notFound/NotFound";

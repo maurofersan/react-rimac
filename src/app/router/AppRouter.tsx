@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserPage, PlansPage, SummaryPage } from "@/pages";
-import NotFound from "@/shared/components/notFound/NotFound";
-import { PrivateRoute } from "@/shared/components/privateRoute/PrivateRoute";
+import NotFound from "@/pages/notFound/NotFound";
+import { PrivateRoute } from "./PrivateRoute";
 import RootLayout from "../layout/RootLayout";
 
 const router = createBrowserRouter(
